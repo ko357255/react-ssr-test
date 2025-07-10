@@ -3,5 +3,8 @@
   "singleQuote": true,
   "semi": true,
   "trailingComma": "all",
-  "useTabs": false
+  "useTabs": false,
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ]
 }
