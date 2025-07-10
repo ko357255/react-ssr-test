@@ -6,8 +6,8 @@ import Profile from '@/page/Profile';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<MyProfile />}/>
-      <Route path='/profile' element={<Profile />}/>
+      <Route path="/" element={<MyProfile />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 }
