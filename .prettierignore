@@ -1,0 +1,24 @@
+# ビルド関連
+dist
+build
+
+# 依存ファイル
+node_modules
+
+# TypeScript 関連
+tsconfig*.json
+
+# Vite 設定
+vite.config.ts
+
+# ESLint 設定（JS ファイルで書いてるので Prettier 対象から除外したほうが無難）
+eslint.config.js
+
+# ドキュメント
+README.md
+
+# Prettier 自体の設定ファイル（Prettier に整形されないように）
+.prettierrc
+.prettierignore
+
+package*.json
