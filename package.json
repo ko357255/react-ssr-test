@@ -8,8 +8,8 @@
     "watch:server": "swc server -d dist --watch",
     "dev:server": "nodemon dist/server/index.js",
     "build": "tsc -b && vite build",
-    "build:client": "vite build",
-    "build:server": "swc server -d dist",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "npx swc src server -d dist",
     "lint": "eslint .",
     "format": "prettier --write .",
     "preview": "vite preview"

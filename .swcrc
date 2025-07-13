@@ -1,0 +1,24 @@
+{
+    "jsc": {
+        "parser": {
+            "syntax": "typescript",
+            "tsx": true // JSX構文を許可
+        },
+        "target": "es2020",
+        "transform": {
+            "react": {
+                "runtime": "automatic" // JSX変換を有効化
+            }
+        },
+        "baseUrl": "./src",
+        "paths": {
+            "@/*": [
+                "*"
+            ]
+        }
+    },
+    "module": {
+        "type": "es6"
+    },
+    "sourceMaps": true
+}
