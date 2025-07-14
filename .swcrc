@@ -2,14 +2,15 @@
     "jsc": {
         "parser": {
             "syntax": "typescript",
-            "tsx": true
+            "tsx": true // JSX構文を許可
         },
         "target": "es2020",
         "transform": {
             "react": {
-                "runtime": "automatic"
+                "runtime": "automatic" // JSX変換を有効化
             }
         },
+        // パスエイリアス
         "baseUrl": "./src",
         "paths": {
             "@/*": [
