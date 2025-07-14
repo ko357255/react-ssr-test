@@ -3,7 +3,6 @@ import path from 'path'; // パス指定のために使う
 import { fileURLToPath } from 'url';
 import { renderToString } from 'react-dom/server';
 import App from '../src/App.js';
-// import { render } from '../dist/server/entry-server.js';
 
 // サーバーを建てるためのもの
 const app = express();
