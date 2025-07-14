@@ -46,6 +46,7 @@ app.get('*', (_req, res) => {
       </head>
       <body>
         <div id="root">${appElement}</div>
+        <script type="module" src="/assets/client.js"></script>
       </body>
     </html>
   `;

@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     // serverとclientで分離してビルドするための設定
     outDir: 'dist/client',
-    emptyOutDir: false
+    emptyOutDir: false,
   },
   resolve: {
     alias: {
