@@ -10,6 +10,7 @@
     "build": "tsc -b && vite build",
     "build:client": "vite build --outDir dist/client",
     "build:server": "npx swc src server -d dist",
+    "build:test": "vite build --ssr src/entry-server.tsx --outDir dist/server",
     "lint": "eslint .",
     "format": "prettier --write .",
     "preview": "vite preview"

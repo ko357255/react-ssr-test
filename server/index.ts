@@ -1,9 +1,7 @@
 import express from 'express'; // サーバーを建てるためのモジュール
 import path from 'path'; // パス指定のために使う
 import { fileURLToPath } from 'url';
-import { renderToString } from 'react-dom/server';
-import App from '../src/App.js';
-// import { render } from '../dist/server/entry-server.js';
+import { render } from '../src/entry-server';
 
 // サーバーを建てるためのもの
 const app = express();
@@ -34,7 +32,7 @@ app.get('*', (_req, res) => {
   // res.sendFile(path.join(distDir, 'index.html'));
 
   // サーバー側でHTMLを生成する
-  const appElement = renderToString(<App />);
+  const appElement = render();
 
   const html = `
     <!DOCTYPE html>

@@ -7,8 +7,11 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     // serverとclientで分離してビルドするための設定
-    outDir: 'dist/client',
-    emptyOutDir: false,
+    outDir: 'dist/client', // clientに出力
+    emptyOutDir: true, // 中身を削除する
+    // rollupOptions: {
+    //   input: 'index.html', // エントリーポイントを指定
+    // },
   },
   resolve: {
     alias: {
