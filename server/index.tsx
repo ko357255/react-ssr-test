@@ -5,7 +5,6 @@ import { renderToString } from 'react-dom/server';
 import App from '../src/App.js';
 // import { render } from '../dist/server/entry-server.js';
 
-
 // サーバーを建てるためのもの
 const app = express();
 // サーバーのポート番号
@@ -22,7 +21,9 @@ const distDir = path.dirname(__dirname); //  .../dist
 app.use(
   // 静的ファイル配信
   express.static(
-    distDir, // distの中を公開
+    // dist/client のファイルを公開
+    path.join(distDir, 'client'),
+    { index: false }, // indexを読み取らない
   ),
 );
 
@@ -41,13 +42,13 @@ app.get('*', (_req, res) => {
       <head>
         <meta charset="UTF-8" />
         <title>Vite + React + TS</title>
-        <link rel="stylesheet" href="/assets/index-BevB-7fz.css" />
+        <link rel="stylesheet" href="/assets/index-DsHAClZ3.css" />
       </head>
       <body>
         <div id="root">${appElement}</div>
       </body>
     </html>
-  `
+  `;
 
   // htmlを返す
   res.send(html);
