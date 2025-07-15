@@ -1,24 +1,18 @@
 // import { StrictMode } from 'react';
 // import { createRoot } from 'react-dom/client';
-// import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App.tsx';
 // createRoot(document.getElementById('root')!).render(
 //   <StrictMode>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
+//     <App />
 //   </StrictMode>,
 // );
 
 // ハイドレートを行う
 import { hydrateRoot } from 'react-dom/client';
-
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  hydrateRoot(
-    rootElement,
-    <App />, // 描写済みのAppにイベントを差し込む
-  );
-}
+// サーバーが生成したHTMLを引き継いで描写する (createRootは破棄して再描写する)
+hydrateRoot(
+  document.getElementById('root')!,
+  <App />, // 描写済みのAppに状態管理やイベントリスナーを差し込む
+);

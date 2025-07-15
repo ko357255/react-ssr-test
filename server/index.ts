@@ -1,7 +1,7 @@
 import express from 'express'; // サーバーを建てるためのモジュール
 import path from 'path'; // パス指定のために使う
 import { fileURLToPath } from 'url';
-import { render } from '../src/entry-server';
+import { render } from '../src/entry-server.js';
 
 // サーバーを建てるためのもの
 const app = express();
@@ -33,18 +33,35 @@ app.get('*', (_req, res) => {
 
   // サーバー側でHTMLを生成する
   const appElement = render();
+  // const appElement = "<div>test</div>"
 
+  // const html = `
+  //   <!DOCTYPE html>
+  //   <html lang="ja">
+  //     <head>
+  //       <meta charset="UTF-8" />
+  //       <title>Vite + React + TS</title>
+  //       <link rel="stylesheet" href="/assets/index-DsHAClZ3.css" />
+  //     </head>
+  //     <body>
+  //       <div id="root">${appElement}</div>
+  //       <script type="module" src="/assets/client.js"></script>
+  //     </body>
+  //   </html>
+  // `;
   const html = `
-    <!DOCTYPE html>
+    <!doctype html>
     <html lang="ja">
       <head>
         <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vite + React + TS</title>
-        <link rel="stylesheet" href="/assets/index-DsHAClZ3.css" />
+        <link rel="stylesheet" crossorigin href="/assets/index-DsHAClZ3.css">
       </head>
       <body>
         <div id="root">${appElement}</div>
-        <script type="module" src="/assets/client.js"></script>
+        <script type="module" crossorigin src="/assets/index-CUqcL2Kb.js"></script>
       </body>
     </html>
   `;
