@@ -2,6 +2,7 @@ import express from 'express'; // サーバーを建てるためのモジュー�
 import path from 'path'; // パス指定のために使う
 import { fileURLToPath } from 'url';
 import { render } from './entry-server.js';
+import { matchRoutes } from 'react-router-dom';
 
 // サーバーを建てるためのもの
 const app = express();
@@ -25,11 +26,17 @@ app.use(
   ),
 );
 
+const routes = [
+  { path: '/' },
+  { path: '/profile' },
+  { path: '*' }, // 404
+];
+
 // ルーティングの全パスに対して dist/index.html を返す
 // ※ react-router を使う場合の設定
 app.get('*', (req, res) => {
-  // // HTTPレスポンスを送る
-  // res.sendFile(path.join(distDir, 'index.html'));
+  const matched = matchRoutes(routes, req.url); // ルートにマッチするかどうか
+  const is404 = !matched || matched[0].route.path === '*'; // 404かどうか
 
   // サーバー側でHTMLを生成する
   // req.url: 現在のURL
@@ -52,6 +59,11 @@ app.get('*', (req, res) => {
       </body>
     </html>
   `;
+
+  if (is404) {
+    // 404 statusを返す
+    res.status(404);
+  }
 
   // htmlを返す
   res.send(html);
