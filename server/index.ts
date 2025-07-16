@@ -1,7 +1,7 @@
 import express from 'express'; // サーバーを建てるためのモジュール
 import path from 'path'; // パス指定のために使う
 import { fileURLToPath } from 'url';
-import { render } from '../src/entry-server.js';
+import { render } from './entry-server.js';
 
 // サーバーを建てるためのもの
 const app = express();
@@ -43,11 +43,11 @@ app.get('*', (_req, res) => {
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vite + React + TS</title>
-        <link rel="stylesheet" crossorigin href="/assets/index-DsHAClZ3.css">
+        <link rel="stylesheet" crossorigin href="/assets/main-DsHAClZ3.css">
       </head>
       <body>
         <div id="root">${appElement}</div>
-        <script type="module" crossorigin src="/assets/index-CUqcL2Kb.js"></script>
+        <script type="module" crossorigin src="/main.js"></script>
       </body>
     </html>
   `;

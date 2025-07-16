@@ -9,9 +9,13 @@ export default defineConfig({
     // serverとclientで分離してビルドするための設定
     outDir: 'dist/client', // clientに出力
     emptyOutDir: true, // 中身を削除する
-    // rollupOptions: {
-    //   input: 'index.html', // エントリーポイントを指定
-    // },
+    rollupOptions: {
+      // SSR の場合の設定 (CSRでは本来 index.html だが使わない)
+      input: '/src/main.tsx', // エントリーポイントを指定
+      output: { // 出力先
+        entryFileNames: 'main.js',
+      }
+    },
   },
   resolve: {
     alias: {

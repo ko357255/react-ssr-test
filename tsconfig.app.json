@@ -29,5 +29,6 @@
       "@/*": ["*"]
     }
   },
-  "include": ["src"]
+  // TSのコンパイル対象
+  "include": ["src", "server"]
 }
