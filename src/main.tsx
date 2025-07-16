@@ -5,13 +5,16 @@ import App from './App';
 import './index.css';
 
 // ハイドレートを行う
-// サーバーが生成したHTMLを引き継いで描写する (createRootは破棄して再描写する)
+
+// サーバーがwindowオブジェクトに埋め込んだ初期データを取得
+const initialData = (window as any).__INITIAL_DATA__;
 
 hydrateRoot(
   document.getElementById('root')!,
   <StrictMode>
     <BrowserRouter>
-      <App />
+      {/* サーバー側の初期データを渡す */}
+      <App initialData={initialData} />
     </BrowserRouter>
   </StrictMode>,
 );

@@ -37,20 +37,24 @@ app.use(
 const routes = [
   { path: '/' },
   { path: '/profile' },
+  { path: '/dog' },
   { path: '*' }, // 404
 ];
 
 // ルーティングの全パスに対して dist/index.html を返す
 // ※ react-router を使う場合の設定
-app.get('*', (req, res) => {
+app.get('*', async (req, res) => {
   const matched = matchRoutes(routes, req.url); // ルートにマッチするかどうか
   const is404 = !matched || matched[0].route.path === '*'; // 404かどうか
 
-  // サーバー側でHTMLを生成する
-  // req.url: 現在のURL
-  const appElement = render(req.url);
-  // const appElement = "<div>test</div>"
+  let initialData: any = null;
+  if (matched && matched[0].route.path === '/dog') {
+    const data = await fetch('https://dog.ceo/api/breeds/image/random');
+    initialData = await data.json();
+  }
 
+  const appElement = render(req.url, initialData);
+  // window.__INITIAL_DATA__ でデータを埋め込む
   const html = `
     <!doctype html>
     <html lang="ja">
@@ -63,6 +67,9 @@ app.get('*', (req, res) => {
       </head>
       <body>
         <div id="root">${appElement}</div>
+        <script>
+          window.__INITIAL_DATA__ = ${JSON.stringify(initialData || {})}
+        </script>
         <script type="module" crossorigin src="/main.js"></script>
       </body>
     </html>
