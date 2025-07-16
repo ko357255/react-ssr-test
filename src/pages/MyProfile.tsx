@@ -18,12 +18,17 @@ const MyProfile = () => {
       <div className="main-content w-full max-w-2xl">
         <div className="mb-6 overflow-hidden rounded-lg bg-white p-8 shadow-xl backdrop-blur-sm">
           <h1 className="mb-4 text-2xl font-bold">自己紹介サイト</h1>
-          <p className="text-gray-700">好きなもの</p>
-          <p className="text-gray-700">動物: 猫</p>
-          <p className="text-gray-700">料理: オムライス</p>
-          <p className="text-gray-700">ゲーム: マインクラフト</p>
-          <p className="text-gray-700">カウンター: {count}</p>
-          <button onClick={() => setCount(count + 1)}>カウント増加</button>
+          <p className="mb-2 text-gray-700">好きなもの</p>
+          <p className="mb-2 text-gray-700">動物: 猫</p>
+          <p className="mb-2 text-gray-700">料理: オムライス</p>
+          <p className="mb-2 text-gray-700">ゲーム: マインクラフト</p>
+          <p className="mb-2 text-gray-700">カウンター: {count}</p>
+          <button
+            className="mb-2 rounded-2xl bg-gray-700 p-2 px-5 py-1 text-white"
+            onClick={() => setCount(count + 1)}
+          >
+            増加
+          </button>
         </div>
       </div>
     </div>

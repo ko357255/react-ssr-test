@@ -3,6 +3,7 @@ import path from 'path'; // パス指定のために使う
 import { fileURLToPath } from 'url';
 import { render } from './entry-server.js';
 import { matchRoutes } from 'react-router-dom';
+import fs from 'fs';
 
 // サーバーを建てるためのもの
 const app = express();
@@ -16,6 +17,13 @@ const __dirname = path.dirname(__filename); // .../dist/server
 
 // path.direname(): 親のディレクトリを取得
 const distDir = path.dirname(__dirname); //  .../dist
+
+// manifest.json を読み込む
+const manifest = JSON.parse(
+  fs.readFileSync(path.join(distDir, 'client/.vite/manifest.json'), 'utf-8'),
+);
+
+const cssPath = manifest['src/main.tsx'].css[0]; // cssのファイルパス
 
 app.use(
   // 静的ファイル配信
@@ -51,7 +59,7 @@ app.get('*', (req, res) => {
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vite + React + TS</title>
-        <link rel="stylesheet" crossorigin href="/assets/main-DsHAClZ3.css">
+        <link rel="stylesheet" crossorigin href="/${cssPath}">
       </head>
       <body>
         <div id="root">${appElement}</div>

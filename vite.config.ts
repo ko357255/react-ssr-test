@@ -9,6 +9,7 @@ export default defineConfig({
     // serverとclientで分離してビルドするための設定
     outDir: 'dist/client', // clientに出力
     emptyOutDir: true, // 中身を削除する
+    manifest: true, // manifestを作成(cssを指定するため)
     rollupOptions: {
       // SSR の場合の設定 (CSRでは本来 index.html だが使わない)
       input: '/src/main.tsx', // エントリーポイントを指定
