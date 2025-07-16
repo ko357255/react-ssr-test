@@ -35,20 +35,6 @@ app.get('*', (_req, res) => {
   const appElement = render();
   // const appElement = "<div>test</div>"
 
-  // const html = `
-  //   <!DOCTYPE html>
-  //   <html lang="ja">
-  //     <head>
-  //       <meta charset="UTF-8" />
-  //       <title>Vite + React + TS</title>
-  //       <link rel="stylesheet" href="/assets/index-DsHAClZ3.css" />
-  //     </head>
-  //     <body>
-  //       <div id="root">${appElement}</div>
-  //       <script type="module" src="/assets/client.js"></script>
-  //     </body>
-  //   </html>
-  // `;
   const html = `
     <!doctype html>
     <html lang="ja">
