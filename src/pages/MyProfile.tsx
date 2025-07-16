@@ -7,7 +7,7 @@ const MyProfile = () => {
     // w-screen: 幅をウィンドウいっぱい h-screen: 高さをウィンドウいっぱい
     // w-full/h-full: 親要素に対して100%
     // flex justify-center items-center: 中央揃え
-    <div className="App flex min-h-screen w-screen items-center justify-center bg-gray-200 p-4">
+    <div className="flex min-h-screen w-screen items-center justify-center bg-gray-200 p-4">
       {
         // max-w-sm: 小さめの横幅
         // max-w-md: 中サイズ

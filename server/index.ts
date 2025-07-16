@@ -27,12 +27,13 @@ app.use(
 
 // ルーティングの全パスに対して dist/index.html を返す
 // ※ react-router を使う場合の設定
-app.get('*', (_req, res) => {
+app.get('*', (req, res) => {
   // // HTTPレスポンスを送る
   // res.sendFile(path.join(distDir, 'index.html'));
 
   // サーバー側でHTMLを生成する
-  const appElement = render();
+  // req.url: 現在のURL
+  const appElement = render(req.url);
   // const appElement = "<div>test</div>"
 
   const html = `

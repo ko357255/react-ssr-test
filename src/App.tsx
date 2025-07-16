@@ -1,16 +1,18 @@
-// import { Route, Routes } from 'react-router-dom';
-// import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-// import Profile from '@/page/Profile.js';
-import MyProfile from '@/page/MyProfile.js';
+import Profile from '@/pages/Profile.js';
+import MyProfile from '@/pages/MyProfile.js';
+import NotFound from '@/pages/NotFound.js';
 
 const App = () => {
   return (
-    <MyProfile />
-    // <Routes>
-    //   <Route path="/" element={<MyProfile />} />
-    //   <Route path="/profile" element={<Profile />} />
-    // </Routes>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<MyProfile />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   );
 };
 
